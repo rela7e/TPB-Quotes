@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+
+<h2>Enter a Quote</h2>
+<form action="/quotes" method="POST">
+  <label>Said By:
+    <input type="text" name="saidBy">
+  </label><br>
+  <label>Quote:
+    <input type="text" name="quote">
+  </label><br>
+
+  <button type="submit">Add Quote</button>
+</form>
+<p><%= errorMsg %></p>
+
+<%- include('../partials/footer') %>
