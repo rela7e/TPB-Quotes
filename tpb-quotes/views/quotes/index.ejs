@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+<table>
+<thead>
+    <tr>
+      <th>Speaker</th>
+      <th>Quote</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% quotes.forEach(function(q) { %>
+      <tr>
+        <td><%= q.saidBy %></td>
+        <td>"<%= q.quote %>"</td>
+      </tr>
+      <% }); %>
+    </tbody>
+</table>
+
+
+<%- include('../partials/footer') %>
