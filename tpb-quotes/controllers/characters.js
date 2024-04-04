@@ -8,7 +8,7 @@ async function index(req, res) {
 
 async function show(req, res) {
     const character = await Character.findById(req.params.id)
-    res.render('movies/show', { title: 'Character Detail', character })
+    res.render('characters/show', { title: 'Character Detail', character })
 }
 
 module.exports = {

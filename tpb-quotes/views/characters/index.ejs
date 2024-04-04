@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-
+<table>
 <thead>
     <tr>
       <th>Name</th>
@@ -11,11 +11,10 @@
       <tr>
         <td><%= c.name %></td>
         <td><%= c.description %></td>
-        <td><a href="/characters/<%= m._id %>">DETAILS</a></td>
       </tr>
       <% }); %>
     </tbody>
-  </table>
+</table>
 
 
 <%- include('../partials/footer') %>

@@ -8,5 +8,11 @@
   <title><%= title %></title>
 </head>
 <body>
-  <main>
+    <nav>
+        <a href="/characters" <%- title === 'All Movies' ? 'class="active"' : '' %>>ALL CHARACTERS</a>
+        <a href="/quotes" <%- title === 'All Movies' ? 'class="active"' : '' %>>ALL QUOTES</a>
+        <a href="/characters/new" <%- title === 'Add Movie' ? 'class="active"' : '' %>>ADD CHARACTER</a>
+        <a href="/quotes/new" <%- title === 'Add Movie' ? 'class="active"' : '' %>>ADD QUOTE</a>
+    </nav>
+    <main>
     <h1><%= title %></h1>
