@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+
+<h2>Enter a Character</h2>
+<form action="/characters" method="POST">
+  <label>Name:
+    <input type="text" name="name">
+  </label><br>
+  <label>Description:
+    <input type="text" name="description">
+  </label><br>
+
+  <button type="submit">Add Character</button>
+</form>
+<p><%= errorMsg %></p>
+
+<%- include('../partials/footer') %>

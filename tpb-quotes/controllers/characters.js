@@ -12,13 +12,21 @@ async function show(req, res) {
 }
 
 function newCharacter(req, res) {
-    // We'll want to be able to render an  
-    // errorMsg if the create action fails
     res.render('characters/new', { title: 'Add Character', errorMsg: '' });
   }
 
+async function create(req, res){
+    try {
+        const character = await Character.create(req.body);
+        res.redirect(`/characters/${character._id}`);
+    } catch (err) {
+        console.log(err);
+        res.render('characters/new', {errorMsg: err.message})
+    }
+}
 module.exports = {
     index,
     show,
-    newCharacter,
+    new: newCharacter,
+    create,
 }
