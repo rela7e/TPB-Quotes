@@ -11,6 +11,10 @@
       <tr>
         <td><%= q.saidBy %></td>
         <td>"<%= q.quote %>"</td>
+        <td><form action="/quotes/<%= q.id %>?_method=DELETE"
+          class="delete-form" method="POST">
+          <button type="submit">X</button>
+        </form></td>
       </tr>
       <% }); %>
     </tbody>

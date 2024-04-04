@@ -25,9 +25,19 @@ async function create(req, res){
     }
 }
 
+async function deleteQuote(req, res){
+    try{
+        await Quote.findByIdAndDelete(req.params.id);
+        res.redirect('/quotes');
+    } catch (err) {
+        console.log(err);
+        res.render('quotes/index', {errorMsg: err.message});
+    }
+}
 module.exports = {
     index,
     show,
     new: newQuote,
     create,
+    delete: deleteQuote,
 }
