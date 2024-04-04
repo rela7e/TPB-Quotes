@@ -11,7 +11,14 @@ async function show(req, res) {
     res.render('characters/show', { title: 'Character Detail', character })
 }
 
+function newCharacter(req, res) {
+    // We'll want to be able to render an  
+    // errorMsg if the create action fails
+    res.render('characters/new', { title: 'Add Character', errorMsg: '' });
+  }
+
 module.exports = {
     index,
     show,
+    newCharacter,
 }
