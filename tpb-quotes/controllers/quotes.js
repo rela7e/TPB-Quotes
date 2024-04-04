@@ -11,3 +11,23 @@ async function show(req, res) {
     res.render('quotes/show', { title: 'Quote', quote })
 }
 
+function newQuote(req, res) {
+    res.render('quotes/new', { title: 'Add Quote', errorMsg: '' });
+  }
+
+async function create(req, res){
+    try {
+        const quote = await Quote.create(req.body);
+        res.redirect(`/quotes/${quote._id}`);
+    } catch (err) {
+        console.log(err);
+        res.render('quotes/new', {errorMsg: err.message})
+    }
+}
+
+module.exports = {
+    index,
+    show,
+    new: newQuote,
+    create,
+}
