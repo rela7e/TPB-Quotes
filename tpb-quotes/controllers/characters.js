@@ -24,9 +24,21 @@ async function create(req, res){
         res.render('characters/new', {errorMsg: err.message})
     }
 }
+
+async function deleteCharacter(req, res){
+    try{
+        await Character.findByIdAndDelete(req.params.id);
+        res.redirect('/characters');
+    } catch (err) {
+        console.log(err);
+        res.render('characters/index', {errorMsg: err.message});
+    }
+}
+
 module.exports = {
     index,
     show,
     new: newCharacter,
     create,
+    delete: deleteCharacter,
 }

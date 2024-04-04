@@ -11,6 +11,10 @@
       <tr>
         <td><%= c.name %></td>
         <td><%= c.description %></td>
+        <td><form action="/characters/<%= c.id %>?_method=DELETE"
+          class="delete-form" method="POST">
+          <button type="submit">X</button>
+        </form></td>
       </tr>
       <% }); %>
     </tbody>
