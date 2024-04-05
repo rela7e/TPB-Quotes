@@ -1,7 +1,5 @@
 const Character = require('../models/character');
 const Quote = require('../models/quote');
-const fs = require('fs');
-const path = require('path');
 
 async function index(req, res) {
     const characters = await Character.find({});
@@ -9,23 +7,34 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
-    const character = await Character.findById(req.params.id)
-    res.render('characters/show', { title: character.name, character })
+    try {
+        const character = await Character.findById(req.params.id);
+        res.render('characters/show', { title: character.name, character });
+    } catch (err) {
+        console.log(err);
+        res.redirect('characters/index');
+    }
 }
 
 function newCharacter(req, res) {
     res.render('characters/new', { title: 'Add Character', errorMsg: '' });
   }
 
-async function create(req, res){
+async function create(req, res) {
     try {
-        const character = await Character.create(req.body);
+        const { name, description } = req.body;
+        const character = new Character({
+            name: name,
+            description: description
+        });
+        await character.save();
         res.redirect(`/characters/${character._id}`);
     } catch (err) {
-        console.log(err);
-        res.render('characters/new', {errorMsg: err.message})
+        console.error(err);
+        res.render('characters/new', { title: 'Add Character', errorMsg: err.message });
     }
 }
+
 
 async function deleteCharacter(req, res){
     try{

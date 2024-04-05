@@ -1,21 +1,23 @@
 <%- include('../partials/header') %>
-<table>
+<table class ='character-table'>
 <thead>
     <tr>
       <th>Name</th>
-      <th>Description</th>
+      <th>Bio and Quotes Link</th>
+      <th class="delete-column"></th>
     </tr>
   </thead>
   <tbody>
     <% characters.forEach(function(c) { %>
       <tr>
         <td><%= c.name %></td>
-        <td><%= c.description %></td>
-        <td><a href="/characters/<%= c._id %>">View Details</a></td>
-        <td><form action="/characters/<%= c.id %>?_method=DELETE"
+        <td><a href="/characters/<%= c._id %>">++++++</a></td>
+        <td class="delete-cell">
+          <form action="/characters/<%= c.id %>?_method=DELETE"
           class="delete-form" method="POST">
-          <button type="submit">X</button>
-        </form></td>
+          <button type="submit">Delete</button>
+          </form>
+        </td>
       </tr>
       <% }); %>
     </tbody>

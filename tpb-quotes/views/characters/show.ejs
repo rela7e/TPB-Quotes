@@ -1,12 +1,21 @@
 <%- include('../partials/header') %>
 
-<section id="show-page-c">
-    
-    
-    <br>
-    <div>Description: </div>
+<section id="show-page">
     <div><%= character.description %></div>
-
+    
+    <h2>Quotes</h2>
+    <ul>
+        <% character.quotes.forEach(function(quote) { %>
+            <li>
+                <div class="quote-content">
+                    <%= quote.content %>
+                </div>
+                <form action="/quotes/<%= quote._id %>?_method=DELETE" method="POST" class="delete-form">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
 </section>
 
 <%- include('../partials/footer') %>

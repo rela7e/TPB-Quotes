@@ -20,7 +20,6 @@
  - Node
  - Express
  - Heroku
- - OAuth
 
 ___
 

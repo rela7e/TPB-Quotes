@@ -1,16 +1,19 @@
 <%- include('../partials/header') %>
 
-<h2>Enter a Quote</h2>
 <form action="/quotes" method="POST">
-  <label>Said By:
-    <input type="text" name="who">
-  </label><br>
-  <label>Quote:
-    <input type="text" name="content">
-  </label><br>
+  <label>Content:
+    <input type="text" name="content" required>
+  </label>
+
+  <label>Character:
+    <select name="characterId" required>
+      <% characters.forEach(function(character) { %>
+        <option value="<%= character._id %>"><%= character.name %></option>
+      <% }); %>
+    </select>
+  </label>
 
   <button type="submit">Add Quote</button>
 </form>
-<p><%= errorMsg %></p>
 
 <%- include('../partials/footer') %>

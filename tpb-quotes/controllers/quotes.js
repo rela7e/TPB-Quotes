@@ -1,43 +1,66 @@
+// controllers/quotesCtrl.js
+
 const Character = require('../models/character');
 const Quote = require('../models/quote');
 
 async function index(req, res) {
-    const quotes = await Quote.find({});
-    res.render('quotes/index', {title: 'All Quotes', quotes });
-}
-
-async function show(req, res) {
-    const quote = await Quote.findById(req.params.id)
-    res.render('quotes/show', { title: 'Quote', quote })
-}
-
-function newQuote(req, res) {
-    res.render('quotes/new', { title: 'Add Quote', errorMsg: '' });
-  }
-
-async function create(req, res){
     try {
-        const quote = await Quote.create(req.body);
-        res.redirect(`/quotes/${quote._id}`);
+        const quotes = await Quote.find({});
+        res.render('quotes/index', { title: 'All Quotes', quotes });
     } catch (err) {
         console.log(err);
-        res.render('quotes/new', {errorMsg: err.message})
+        res.render('/'), {errorMsg: err.message};
     }
 }
 
-async function deleteQuote(req, res){
-    try{
-        await Quote.findByIdAndDelete(req.params.id);
-        res.redirect('/quotes');
+async function create(req, res) {
+    try {
+        const { content, characterId } = req.body;
+        const character = await Character.findById(characterId);
+        if (!character) {
+            return res.redirect('/characters');
+        }
+        const quote = new Quote({ content });
+        character.quotes.push(quote);
+        await character.save();
+        res.redirect('/'); 
     } catch (err) {
-        console.log(err);
-        res.render('quotes/index', {errorMsg: err.message});
+        console.error(err);
+        res.render('quotes/new', { title: 'Add Quote', errorMsg: err.message });
+    }
+}
+
+async function newQuote(req, res) {
+    try {
+        const characters = await Character.find({}, '_id name');
+        res.render('quotes/new', { title: 'Add Quote', errorMsg: '', characters });
+    } catch (err) {
+        console.error(err);
+        res.render('quotes/new', { errorMsg: err.message });
+    }
+}
+
+
+async function deleteQuote(req, res) {
+    try {
+        const character = await Character.findOneAndUpdate(
+            { "quotes._id": req.params.id }, 
+            { $pull: { quotes: { _id: req.params.id } } }, 
+            { new: true } 
+        );
+        if (!character) {
+            return res.redirect('/characters');
+        }
+        res.redirect(`/characters/${character._id}`);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error deleting quote');
     }
 }
 module.exports = {
     index,
-    show,
     new: newQuote,
     create,
     delete: deleteQuote,
-}
+};
+

@@ -11,7 +11,17 @@ body {
   grid-template-rows: 50px 1fr;
   grid-template-areas: 
     "nav"
-    "main"
+    "main";
+  color: black;
+
+}
+h3 {
+  color: #E8ECEB;
+  text-align: center; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
 }
 
 body > nav {
@@ -32,11 +42,13 @@ body > main {
   background-color: #E8ECEB;
   padding: 20px;
   overflow-y: scroll;
+  background-image: url(https://images.mubicdn.net/images/film/185682/cache-274005-1509489842/image-w1280.jpg?size=800x);
+  background-size: cover;
+  background-position: center;
+  color: black;
 }
 
-body > main h1:first-child {
-  margin-bottom: 50px;
-}
+
 
 nav > a {
   margin: 20px;
@@ -55,71 +67,73 @@ nav > a.active {
   cursor: default;
 }
 
-#new-form {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(2, minmax(auto, 22rem));
-}
-
-
-#new-form input[type="submit"] {
-  grid-column: span 2;
-  width: 10rem;
-  margin-left: auto;
-}
 
 table {
-  font-size: 20px;
+  width: 100%; 
+  border-collapse: collapse; 
 }
 
-table thead th {
-  padding: 5px;
-  border-bottom: 2px solid #424748;
+
+th {
+  border: none; 
+  text-align: center;
+  color: #000; 
 }
 
-table td {
-  padding: 10px;
+
+td {
+  border: none; 
+  padding: 8px; 
+  color: #000;
+  text-align: center;
+  text-decoration: solid; 
+}
+
+th,
+td {
+  color: #000; 
+  font-weight: bold; 
+  font-size: 16px;
+  text-align: left; 
+  padding: 8px; 
+}
+
+form {
+  color: #000; 
+}
+
+h1, h2 {
+  color: black;
   text-align: center;
 }
 
-#list td:nth-child(2), #list td:nth-child(3){
-  min-width: 100px;
+form label {
+  color: black;
 }
 
-#list a {
-  border-radius: 4px;
-  background-color: #B8C0C2;
-  padding: 4px;
-  text-decoration: none;
-  font-size: 14px;
+form button[type="submit"] {
+  margin: 0 auto; 
+  display: block;
+  margin-top: 20px;
+  color: black; 
 }
 
-#list a:hover {
-  background-color: white;
+table a {
+  color: rgb(0, 0, 0); 
 }
 
-#show-page-c {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 1rem;
+
+.quote-content {
+  display: inline-block;
 }
 
-#show-page-c div:nth-child(even) {
+.delete-form {
+  display: inline-block;
+  margin-left: 50px; 
+}
+
+div {
+  color: black;
   font-weight: bold;
 }
 
-
-hr {
-  color: #424748
-}
-
-
-#show-page-c ul {
-  margin: 0 0 2rem;
-  padding: 0;
-  list-style: none;
-}
-	
-#show-page-c li {
-  font-weight: bold;
-}
