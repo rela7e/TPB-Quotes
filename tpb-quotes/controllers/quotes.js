@@ -7,7 +7,7 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
-    const quote = await Character.findById(req.params.id)
+    const quote = await Quote.findById(req.params.id)
     res.render('quotes/show', { title: 'Quote', quote })
 }
 

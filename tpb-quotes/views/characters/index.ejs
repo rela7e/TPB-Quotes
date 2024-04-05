@@ -11,6 +11,7 @@
       <tr>
         <td><%= c.name %></td>
         <td><%= c.description %></td>
+        <td><a href="/characters/<%= c._id %>">View Details</a></td>
         <td><form action="/characters/<%= c.id %>?_method=DELETE"
           class="delete-form" method="POST">
           <button type="submit">X</button>

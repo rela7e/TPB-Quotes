@@ -9,8 +9,8 @@
   <tbody>
     <% quotes.forEach(function(q) { %>
       <tr>
-        <td><%= q.saidBy %></td>
-        <td>"<%= q.quote %>"</td>
+        <td><%= q.who %></td>
+        <td>"<%= q.content %>"</td>
         <td><form action="/quotes/<%= q.id %>?_method=DELETE"
           class="delete-form" method="POST">
           <button type="submit">X</button>

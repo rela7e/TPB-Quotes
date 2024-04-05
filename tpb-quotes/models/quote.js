@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const quoteSchema = new Schema({
-    quote: {
+    who: {
         type: String,
         required: true
     },
-    saidBy: {
+    content: {
         type: String,
         required: true
     },

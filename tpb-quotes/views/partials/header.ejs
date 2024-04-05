@@ -9,10 +9,10 @@
 </head>
 <body>
     <nav>
-        <a href="/characters" <%- title === 'All Movies' ? 'class="active"' : '' %>>ALL CHARACTERS</a>
-        <a href="/quotes" <%- title === 'All Movies' ? 'class="active"' : '' %>>ALL QUOTES</a>
-        <a href="/characters/new" <%- title === 'Add Movie' ? 'class="active"' : '' %>>ADD CHARACTER</a>
-        <a href="/quotes/new" <%- title === 'Add Movie' ? 'class="active"' : '' %>>ADD QUOTE</a>
+      <a href="/characters" <%- title === 'All Characters' ? 'class="active"' : '' %>>ALL CHARACTERS</a>
+      <a href="/quotes" <%- title === 'All Quotes' ? 'class="active"' : '' %>>ALL QUOTES</a>
+      <a href="/characters/new" <%- title === 'Add Character' ? 'class="active"' : '' %>>ADD CHARACTER</a>
+      <a href="/quotes/new" <%- title === 'Add Quote' ? 'class="active"' : '' %>>ADD QUOTE</a>
     </nav>
     <main>
     <h1><%= title %></h1>
