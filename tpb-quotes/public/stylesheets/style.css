@@ -98,13 +98,13 @@ table td {
   background-color: white;
 }
 
-#show-page {
+#show-page-c {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 1rem;
 }
 
-#show-page div:nth-child(even) {
+#show-page-c div:nth-child(even) {
   font-weight: bold;
 }
 
@@ -114,12 +114,12 @@ hr {
 }
 
 
-#show-page ul {
+#show-page-c ul {
   margin: 0 0 2rem;
   padding: 0;
   list-style: none;
 }
 	
-#show-page li {
+#show-page-c li {
   font-weight: bold;
 }

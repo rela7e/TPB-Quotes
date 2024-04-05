@@ -1,5 +1,7 @@
 const Character = require('../models/character');
 const Quote = require('../models/quote');
+const fs = require('fs');
+const path = require('path');
 
 async function index(req, res) {
     const characters = await Character.find({});
@@ -8,7 +10,7 @@ async function index(req, res) {
 
 async function show(req, res) {
     const character = await Character.findById(req.params.id)
-    res.render('characters/show', { title: 'Character Detail', character })
+    res.render('characters/show', { title: character.name, character })
 }
 
 function newCharacter(req, res) {
