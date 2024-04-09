@@ -3,15 +3,6 @@
 const Character = require('../models/character');
 const Quote = require('../models/quote');
 
-async function index(req, res) {
-    try {
-        const quotes = await Quote.find({});
-        res.render('quotes/index', { title: 'All Quotes', quotes });
-    } catch (err) {
-        console.log(err);
-        res.render('/'), {errorMsg: err.message};
-    }
-}
 
 async function create(req, res) {
     try {
@@ -58,7 +49,6 @@ async function deleteQuote(req, res) {
     }
 }
 module.exports = {
-    index,
     new: newQuote,
     create,
     delete: deleteQuote,
