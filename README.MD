@@ -25,8 +25,7 @@ ___
 
 ### **_Link to app_**
 
-#### App currently under construction. Check back later for a deployed version
-
+#### [Heroku](https://tpbquotesplswork-15b3ba465852.herokuapp.com/)
 ---
 
 ### **_Wireframes_**
