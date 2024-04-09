@@ -1,12 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const quoteSchema = new Schema({
-    content: {
-        type: String,
-        required: true
-    }
-});
 
 const characterSchema = new Schema({
     name: {
@@ -16,7 +10,10 @@ const characterSchema = new Schema({
     description: {
         type: String
     },
-    quotes: [quoteSchema] 
+    quotes: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Quote'
+    }]
 });
 
 module.exports = mongoose.model('Character', characterSchema);
