@@ -8,7 +8,7 @@
 
 ### **_Description_**
 
-#### An application used to store and render out some of the ridiculous things the characters on the hit show Trailer Park Boys say. Users can add and delete their favourtie characters and quotes 
+#### An application used to store and render out some of the ridiculous things the characters on the hit show Trailer Park Boys say. Users can add and delete their favourite characters and quotes 
 
 ---
 
@@ -34,10 +34,10 @@ ___
 ![Home Page](/Wireframes/Index.PNG)
 
 #### Characters Page
-![Characters Page](/Wireframes/All%20characters.PNG)
+![Characters Page](Wireframes/All%20Characters.PNG)
 
 #### Add Quote Page
-![Add Quote Page](/Wireframes/Add%20Quote%20.PNG)
+![Add Quote Page](/Wireframes/Add%20Quote.PNG)
 
 #### Add Character Page
 ![Add Character Page](/Wireframes/Add%20Character.PNG)
@@ -51,12 +51,12 @@ ___
 
 ### **_Future Targets_**
 
-[ ] Add OAuth
-[ ] Add abilty to edit characters and quotes
-[ ] Add a feature that queries the database and displays a random quote
-[ ] Add a guess who said it game
-[ ] Add ability for users to upload images when creating a character page
-[ ] Add a "meme generator"
+##### [ ] Add OAuth
+##### [ ] Add abilty to edit characters and quotes
+##### [ ] Add a feature that queries the database and displays a random quote
+##### [ ] Add a guess who said it game
+##### [ ] Add ability for users to upload images when creating a character page
+##### [ ] Add a "meme generator"
 
 ---
 
