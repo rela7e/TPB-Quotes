@@ -4,20 +4,13 @@ const Character = require('../models/character');
 const Quote = require('../models/quote');
 
 
-async function create(req, res) {
+const create = async (req, res) => {
     try {
         const { content, characterId } = req.body;
-        const character = await Character.findById(characterId);
-        if (!character) {
-            return res.redirect('/characters');
-        }
-        const quote = new Quote({ content });
-        character.quotes.push(quote);
-        await character.save();
-        res.redirect('/'); 
+        await Quote.create({ content, character: characterId });
+        res.redirect('characters');
     } catch (err) {
-        console.error(err);
-        res.render('quotes/new', { title: 'Add Quote', errorMsg: err.message });
+        console.log(err);
     }
 }
 
@@ -45,7 +38,6 @@ async function deleteQuote(req, res) {
         res.redirect(`/characters/${character._id}`);
     } catch (err) {
         console.error(err);
-        res.status(500).send('Error deleting quote');
     }
 }
 module.exports = {
