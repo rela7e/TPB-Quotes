@@ -8,7 +8,7 @@ async function index(req, res) {
 
 async function show(req, res) {
     try {
-        const character = await Character.findById(req.params.id);
+        const character = await Character.findById(req.params.id).populate('quotes');
         res.render('characters/show', { title: character.name, character });
     } catch (err) {
         console.log(err);
